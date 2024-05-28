@@ -1,15 +1,12 @@
-import { Text, SafeAreaView, StyleSheet, View, ActivityIndicator } from 'react-native';
+import { StyleSheet, View, ActivityIndicator } from 'react-native';
 import React, { useEffect, useState } from 'react';
-import Constants from 'expo-constants';
 import * as Location from 'expo-location';
 import axios from 'axios';
-import { setDate } from 'date-fns';
 
 import CurrentWeather from './components/CurrentWeather';
 import Forecast from './components/Forecast';
 
-const API_KEY = "";
-const API_URL = (lat, lon) => `https://api.openweathermap.org/data/2.5/forecast?lat=${lat}&lon=${lon}&appid=${API_KEY}&lang=fr&units=metric`;
+const API_URL = (lat, lon) => `${process.env.EXPO_PUBLIC_API_URL}/forecast?lat=${lat}&lon=${lon}&appid=${process.env.EXPO_PUBLIC_API_KEY}&lang=fr&units=metric`;
 
 export default function App() {
   // On créé un state pour savoir si on est en cours de chargement ou pas
