@@ -19,7 +19,6 @@ export default function App() {
   */
   useEffect(() => {
     setLoading(true);
-    console.log("loading true : ", loading);
     /*
     Dans un useEffect on ne peut pas utiliser une fonction async
     */
@@ -71,7 +70,7 @@ export default function App() {
   return (
     <View style={styles.container}>
       <CurrentWeather data={data} />
-      <Forecast data={data} />
+      <Forecast data={data} id="{data.name}"/>
     </View>
   );
 
