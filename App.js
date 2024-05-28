@@ -6,6 +6,7 @@ import axios from 'axios';
 import { setDate } from 'date-fns';
 
 import CurrentWeather from './components/CurrentWeather';
+import Forecast from './components/Forecast';
 
 const API_KEY = "";
 const API_URL = (lat, lon) => `https://api.openweathermap.org/data/2.5/forecast?lat=${lat}&lon=${lon}&appid=${API_KEY}&lang=fr&units=metric`;
@@ -73,6 +74,7 @@ export default function App() {
   return (
     <View style={styles.container}>
       <CurrentWeather data={data} />
+      <Forecast data={data} />
     </View>
   );
 
